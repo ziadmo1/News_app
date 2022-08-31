@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:newss_app/screens/category_screen/category.dart';
+import 'package:newss_app/screens/category_screen/category_screen.dart';
+import 'package:newss_app/screens/news_screen/news_screen.dart';
+import 'package:newss_app/screens/settings_screen/settings_screen.dart';
+
+import 'home_drawer.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String routeName = 'home';
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+    void initState() {
+    // TODO: implement initState
+    super.initState();
+    selectedWidget = CategoryScreen(onClickCategory);
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+        color: Colors.white,
+        image: DecorationImage(
+        fit: BoxFit.fill,
+        image: AssetImage('assets/images/background.png',)
+    )
+    ),
+    child: Scaffold(
+    backgroundColor: Colors.transparent,
+    appBar: AppBar(
+    title: Text('News App'),
+    ),
+      drawer: Drawer(
+        child: HomeDrawer(onBtnSelectedWidget),
+      ),
+      body: selectedWidget,
+    )
+    );
+  }
+
+  void onClickCategory(Categories category){
+    selectedWidget = NewsScreen(category);
+    setState(() {
+
+    });
+  }
+
+ late Widget selectedWidget;
+  onBtnSelectedWidget(String input){
+    Navigator.pop(context);
+    if(input == HomeDrawer.category){
+      selectedWidget = CategoryScreen(onClickCategory);
+    }
+    else if(input == HomeDrawer.setting){
+      selectedWidget = SettingsScreen();
+    }
+    setState(() {
+    });
+  }
+}
