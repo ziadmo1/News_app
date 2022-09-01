@@ -19,11 +19,12 @@ class Api_Manage {
       return responseBody;
   }
 
-  static Future<NewsResponce> getNewsData(String sourceId)async{
+  static Future<NewsResponce> getNewsData({String? sourceId ,String? query})async{
     var uri =
     Uri.https(baseUrl, '/v2/everything', {
       'apiKey': api_key,
-      'sources': sourceId
+      'sources': sourceId,
+      'q' : query
     });
     var response = await http.get(uri);
     var bodyString = response.body;

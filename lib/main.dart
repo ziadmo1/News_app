@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
           HomeScreen.routeName :(_)=>HomeScreen(),
           NewsDetails.routeName:(_)=>NewsDetails(),
         WebViewScreen.routeName:(_)=>WebViewScreen(),
-
       },
         theme: MyThemeData.lightTheme,
     );

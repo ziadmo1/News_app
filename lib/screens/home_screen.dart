@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newss_app/screens/category_screen/category.dart';
 import 'package:newss_app/screens/category_screen/category_screen.dart';
 import 'package:newss_app/screens/news_screen/news_screen.dart';
+import 'package:newss_app/screens/search_delegate.dart';
 import 'package:newss_app/screens/settings_screen/settings_screen.dart';
-
 import 'home_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,6 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
     backgroundColor: Colors.transparent,
     appBar: AppBar(
     title: Text('News App'),
+      actions: [
+        Container(
+            padding: EdgeInsets.only(right: 3),
+            child: IconButton(onPressed: (){
+                      showSearch(context: context, delegate: SearchNews());
+            }, icon: Icon(Icons.search,size: 30,)))
+      ],
     ),
       drawer: Drawer(
         child: HomeDrawer(onBtnSelectedWidget),
@@ -63,3 +70,4 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 }
+

@@ -14,7 +14,7 @@ class NewsData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponce>(
-        future: Api_Manage.getNewsData(sources.id??''),
+        future: Api_Manage.getNewsData(sourceId: sources.id??''),
         builder: (context, snapshot) {
     if (snapshot.hasError) {
        Padding(
