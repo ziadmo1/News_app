@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyThemeData{
@@ -44,6 +45,12 @@ class MyThemeData{
         fontSize: 24,
         fontWeight: FontWeight.bold
       ),
-    )
+    ),
+   bottomSheetTheme: BottomSheetThemeData(
+     backgroundColor: Colors.white,
+     shape: RoundedRectangleBorder(
+       borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40))
+     )
+   )
   );
 }
